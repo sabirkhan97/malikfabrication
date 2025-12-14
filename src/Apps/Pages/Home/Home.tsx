@@ -9,9 +9,20 @@ import {
   Clock,
   CheckCircle,
   Award,
+  ChevronRight,
 } from "lucide-react";
 
 /* ---------------- DATA ---------------- */
+const specializations = [
+  "Fancy Gates & Grills",
+  "Security Railings",
+  "Rolling Shutters",
+  "Channel Gates",
+  "Section Windows",
+  "Industrial Sheds",
+  "Structural Fabrication",
+  "Custom Metal Artwork"
+];
 
 const services = [
   {
@@ -49,7 +60,7 @@ export default function Home() {
       {/* ================= HERO ================= */}
       <section className="relative min-h-screen flex items-center">
         <img
-          src="https://www.codinter.com/en/wp-content/uploads/sites/2/2023/03/BLOG-032223-EN-Large-scale-welding-projects-How-to-do-them-efficiently.jpg"
+          src="https://aaizahenterprises.in/default/1717409013.webp"
           className="absolute inset-0 w-full h-full object-cover"
           alt="Fabrication Background"
         />
@@ -69,6 +80,14 @@ export default function Home() {
             <p className="mt-6 max-w-2xl text-xl text-gray-300">
               Precision Metal Fabrication & Welding Solutions for
               Residential, Commercial & Industrial Needs.
+              All kinds of Fancy Gates & Grills,
+              Security Railings,
+              Rolling Shutters,
+              Channel Gates,
+              Section Windows,
+              Industrial Sheds,
+              Structural Fabrication,
+              Custom Metal Artwork
             </p>
 
             {/* CTA */}
@@ -161,6 +180,30 @@ export default function Home() {
             <p className="text-sm text-gray-400 mt-1">Clear communication always</p>
           </div>
         </div>
+      </section>
+
+      <section className="pb-4">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          className="mt-20"
+        >
+          <h3 className="text-2xl font-bold text-center mb-8">Our Specializations</h3>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+            {specializations.map((item, index) => (
+              <div
+                key={index}
+                className="bg-gray-900/50 backdrop-blur-sm rounded-lg p-4 text-center border border-gray-800 hover:border-amber-500/30 transition-colors group"
+              >
+                <ChevronRight className="w-4 h-4 text-amber-500 inline-block mr-2 group-hover:translate-x-1 transition-transform" />
+                <span className="text-sm text-gray-300 group-hover:text-amber-400 transition-colors">
+                  {item}
+                </span>
+              </div>
+            ))}
+          </div>
+        </motion.div>
       </section>
     </div>
   );
