@@ -1,245 +1,113 @@
 import { motion } from "framer-motion";
-import {  useState } from "react";
-import { 
-  ArrowRight, 
-  Shield, 
-  Zap, 
-  Building2, 
-  Phone, 
+import {
+  ArrowRight,
+  Shield,
+  Zap,
+  Building2,
+  Phone,
   Mail,
-  MapPin,
   Clock,
-  ChevronRight,
+  CheckCircle,
   Award,
-  CheckCircle
 } from "lucide-react";
 
+/* ---------------- DATA ---------------- */
+
 const services = [
-  { 
-    title: "Metal Fabrication", 
-    desc: "Custom metal structures & components",
+  {
+    title: "Metal Fabrication",
+    desc: "Custom-built metal structures with precision finishing.",
     icon: Shield,
-    features: ["Custom Designs", "Precision Cutting", "Assembly"]
+    features: ["Custom Designs", "Precision Cutting", "Assembly"],
   },
-  { 
-    title: "Welding Services", 
-    desc: "High-strength industrial welding",
+  {
+    title: "Welding Services",
+    desc: "High-strength industrial and structural welding.",
     icon: Zap,
-    features: ["MIG/TIG Welding", "Structural Welding", "Quality Assurance"]
+    features: ["MIG / TIG Welding", "Structural Welding", "QA Tested"],
   },
-  { 
-    title: "Industrial Sheds", 
-    desc: "Heavy-duty shed fabrication",
+  {
+    title: "Industrial Sheds",
+    desc: "Durable steel sheds for industrial applications.",
     icon: Building2,
-    features: ["Steel Structures", "Weatherproof", "Custom Sizes"]
+    features: ["Heavy Steel", "Weatherproof", "Custom Sizes"],
   },
 ];
 
-const projects = [
-  {
-    title: "Industrial Shed",
-    category: "Commercial",
-    img: "https://5.imimg.com/data5/XE/CW/MY-3027136/industrial-shed-fabrication-services.jpg",
-  },
-  {
-    title: "Precision Welding",
-    category: "Industrial",
-    img: "https://thumbs.dreamstime.com/b/welders-were-welding-steel-structural-arc-welding-welders-were-welding-steel-structural-arc-welding-steel-structure-111647567.jpg",
-  },
-  {
-    title: "Custom Metal Works",
-    category: "Residential",
-    img: "https://www.finisharchitectural.co.uk/wp-content/uploads/2024/02/Untitled-design-2024-02-22T100907.399.png",
-  },
+const stats = [
+  { value: "15+", label: "Years Experience" },
+  { value: "500+", label: "Projects Completed" },
+  { value: "300+", label: "Happy Clients" },
 ];
 
-const specializations = [
-  "Fancy Gates & Grills",
-  "Security Railings",
-  "Rolling Shutters",
-  "Channel Gates",
-  "Section Windows",
-  "Industrial Sheds",
-  "Structural Fabrication",
-  "Custom Metal Artwork"
-];
+/* ---------------- COMPONENT ---------------- */
 
 export default function Home() {
-  const [hoveredService, setHoveredService] = useState(null);
-
   return (
-    <div className="bg-gray-900 text-white">
-      {/* HERO SECTION */}
-      <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
-        {/* Animated Background */}
-        <div className="absolute inset-0">
-          <img 
-            src="https://www.codinter.com/en/wp-content/uploads/sites/2/2023/03/BLOG-032223-EN-Large-scale-welding-projects-How-to-do-them-efficiently.jpg"
-            alt="Background"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/70 to-gray-900" />
-          {/* Animated Sparks */}
-          <div className="absolute inset-0">
-            {[...Array(5)].map((_, i) => (
-              <motion.div
-                key={i}
-                className="absolute w-[2px] h-8 bg-amber-500/30"
-                initial={{ y: -100, x: Math.random() * 100 + "%" }}
-                animate={{ 
-                  y: "100vh",
-                  transition: {
-                    duration: 2,
-                    delay: i * 0.5,
-                    repeat: Infinity,
-                    ease: "linear"
-                  }
-                }}
-              />
-            ))}
-          </div>
-        </div>
+    <div className="bg-[#0b0f14] text-white">
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="relative z-10 text-center px-4 max-w-6xl mx-auto"
-        >
-          {/* Logo/Branding */}
+      {/* ================= HERO ================= */}
+      <section className="relative min-h-screen flex items-center">
+        <img
+          src="https://www.codinter.com/en/wp-content/uploads/sites/2/2023/03/BLOG-032223-EN-Large-scale-welding-projects-How-to-do-them-efficiently.jpg"
+          className="absolute inset-0 w-full h-full object-cover"
+          alt="Fabrication Background"
+        />
+        <div className="absolute inset-0 bg-black/80" />
+
+        <div className="relative z-10 max-w-6xl mx-auto px-6">
           <motion.div
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ delay: 0.2, type: "spring" }}
-            className="mb-8"
-          >
-         
-            <h1 className="text-5xl md:text-7xl font-bold mb-4">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-500">
-                Malik
-              </span>{" "}
-              <span className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-                Fabrication
-              </span>
-            </h1>
-          </motion.div>
-
-          {/* Tagline */}
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.4 }}
-            className="text-xl md:text-2xl font-light text-gray-300 mb-8 max-w-2xl mx-auto"
-          >
-            Precision Metalwork & Industrial Solutions
-          </motion.p>
-
-          {/* Main Content Card */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6 }}
-            className="bg-gradient-to-br from-gray-900/90 to-black/90 backdrop-blur-sm rounded-2xl p-8 md:p-10 border border-gray-800 shadow-2xl mb-10"
+            transition={{ duration: 0.8 }}
           >
-            <div className="grid md:grid-cols-2 gap-8 items-start">
-              {/* Left Column */}
-              <div className="text-left">
-                <div className="flex items-center gap-3 mb-6">
-                  <Award className="w-6 h-6 text-amber-500" />
-                  <h2 className="text-2xl font-bold bg-gradient-to-r from-amber-400 to-orange-400 bg-clip-text text-transparent">
-                    Reliable Fabrication & Welding Solutions
-                  </h2>
-                </div>
-                
-                <p className="text-gray-300 mb-6 text-lg">
-                  With years of expertise in metal fabrication, we deliver durable, 
-                  high-quality solutions for residential, commercial, and industrial needs.
-                </p>
+            <h1 className="text-5xl md:text-7xl font-bold leading-tight">
+              <span className="text-amber-400">Malik</span>{" "}
+              <span className="text-gray-200">Fabrication</span>
+            </h1>
 
-                <div className="flex items-center gap-4 text-gray-400 mb-6">
-                  <CheckCircle className="w-5 h-5 text-amber-500" />
-                  <span className="text-sm">Quality Certified</span>
-                  <CheckCircle className="w-5 h-5 text-amber-500" />
-                  <span className="text-sm">Timely Delivery</span>
-                  <CheckCircle className="w-5 h-5 text-amber-500" />
-                  <span className="text-sm">Competitive Pricing</span>
-                </div>
-              </div>
+            <p className="mt-6 max-w-2xl text-xl text-gray-300">
+              Precision Metal Fabrication & Welding Solutions for
+              Residential, Commercial & Industrial Needs.
+            </p>
 
-              {/* Right Column */}
-              <div className="text-left">
-                <div className="flex items-center gap-3 mb-6">
-                  <Zap className="w-6 h-6 text-amber-500" />
-                  <h3 className="text-xl font-semibold">Our Specializations</h3>
-                </div>
-                
-                <div className="grid grid-cols-2 gap-3 mb-6">
-                  {specializations.slice(0, 6).map((item, index) => (
-                    <div key={index} className="flex items-center gap-2 group">
-                      <ChevronRight className="w-4 h-4 text-amber-500 group-hover:translate-x-1 transition-transform" />
-                      <span className="text-gray-300 text-sm group-hover:text-amber-400 transition-colors">
-                        {item}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-                
-                <p className="text-amber-400 font-medium">
-                  + Custom Fabrication & All Metal Items
-                </p>
+            {/* CTA */}
+            <div className="flex flex-wrap items-center gap-6 mt-10">
+              <button className="bg-amber-500 hover:bg-amber-600 text-black font-bold px-8 py-4 rounded-xl flex items-center gap-3 transition">
+                Get Free Quote
+                <ArrowRight className="w-5 h-5" />
+              </button>
+
+              <div className="flex items-center gap-3 text-gray-300">
+                <Phone className="w-5 h-5 text-amber-400" />
+                +91 7838170214
               </div>
             </div>
-          </motion.div>
 
-          {/* CTA Button */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.8 }}
-          >
-            <button className="group relative bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-black font-bold px-8 py-4 rounded-xl text-lg transition-all duration-300 shadow-lg hover:shadow-2xl hover:scale-105">
-              <span className="flex items-center gap-3">
-                Get Your Free Quote
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
-              </span>
-              <div className="absolute inset-0 rounded-xl border-2 border-amber-400/50 animate-pulse group-hover:animate-none" />
-            </button>
-            
-            {/* Contact Info */}
-            <div className="flex flex-wrap justify-center gap-6 mt-8 text-gray-400">
-              <div className="flex items-center gap-2">
-                <Phone className="w-4 h-4" />
-                <span>+91 7838170214</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Mail className="w-4 h-4" />
-                <span>info@malikfabrication.com</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Clock className="w-4 h-4" />
-                <span>Mon-Sat: 9AM-7PM</span>
-              </div>
+            {/* STATS */}
+            <div className="grid grid-cols-3 gap-6 mt-16 max-w-xl">
+              {stats.map((s, i) => (
+                <div key={i} className="border border-gray-800 rounded-xl p-4 text-center bg-white/5">
+                  <p className="text-3xl font-bold text-amber-400">{s.value}</p>
+                  <p className="text-sm text-gray-400 mt-1">{s.label}</p>
+                </div>
+              ))}
             </div>
           </motion.div>
-        </motion.div>
+        </div>
       </section>
 
-      {/* SERVICES SECTION */}
-      <section className="py-20 bg-gradient-to-b from-gray-900 to-black">
-        <div className="max-w-6xl mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-500">Expert</span> Services
+      {/* ================= SERVICES ================= */}
+      <section className="py-24 bg-gradient-to-b from-[#0b0f14] to-black">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold">
+              Our <span className="text-amber-400">Services</span>
             </h2>
-            <p className="text-gray-400 max-w-2xl mx-auto">
-              Comprehensive metal fabrication solutions tailored to your specific requirements
+            <p className="mt-4 text-gray-400">
+              Reliable fabrication solutions built to last
             </p>
-          </motion.div>
+          </div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {services.map((service, i) => {
@@ -247,46 +115,24 @@ export default function Home() {
               return (
                 <motion.div
                   key={i}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.2 }}
-                  whileHover={{ y: -10 }}
-                  // onMouseEnter={() => setHoveredService(i)}
-                  onMouseLeave={() => setHoveredService(null)}
-                  className="group relative bg-gradient-to-br from-gray-900/50 to-black/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-800 hover:border-amber-500/30 transition-all duration-300"
+                  whileHover={{ y: -8 }}
+                  className="bg-white/5 border border-gray-800 rounded-2xl p-8 hover:border-amber-500/40 transition"
                 >
-                  {/* Icon */}
-                  <div className={`w-16 h-16 rounded-2xl mb-6 flex items-center justify-center transition-all duration-300 ${
-                    hoveredService === i 
-                      ? 'bg-gradient-to-r from-amber-500 to-orange-600' 
-                      : 'bg-gray-800'
-                  }`}>
-                    <Icon className={`w-8 h-8 transition-colors duration-300 ${
-                      hoveredService === i ? 'text-black' : 'text-amber-500'
-                    }`} />
+                  <div className="w-14 h-14 rounded-xl bg-amber-500/10 flex items-center justify-center mb-6">
+                    <Icon className="w-7 h-7 text-amber-400" />
                   </div>
 
-                  {/* Content */}
-                  <h3 className="text-2xl font-bold mb-3 group-hover:text-amber-400 transition-colors">
-                    {service.title}
-                  </h3>
-                  <p className="text-gray-400 mb-6">
-                    {service.desc}
-                  </p>
+                  <h3 className="text-2xl font-bold mb-3">{service.title}</h3>
+                  <p className="text-gray-400 mb-6">{service.desc}</p>
 
-                  {/* Features */}
-                  <div className="space-y-2">
-                    {service.features.map((feature, idx) => (
-                      <div key={idx} className="flex items-center gap-2">
-                        <div className="w-2 h-2 rounded-full bg-amber-500" />
-                        <span className="text-sm text-gray-300">{feature}</span>
-                      </div>
+                  <ul className="space-y-2">
+                    {service.features.map((f, idx) => (
+                      <li key={idx} className="flex items-center gap-2 text-sm">
+                        <CheckCircle className="w-4 h-4 text-amber-400" />
+                        <span className="text-gray-300">{f}</span>
+                      </li>
                     ))}
-                  </div>
-
-                  {/* Hover Line */}
-                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-amber-500 to-orange-600 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
+                  </ul>
                 </motion.div>
               );
             })}
@@ -294,87 +140,26 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PROJECTS SECTION */}
-      <section className="py-20 bg-black">
-        <div className="max-w-6xl mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Featured <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-500">Projects</span>
-            </h2>
-            <p className="text-gray-400 max-w-2xl mx-auto">
-              Showcasing our expertise through quality craftsmanship
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-3 gap-6">
-            {projects.map((project, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.2 }}
-                whileHover={{ y: -10 }}
-                className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-gray-900 to-black"
-              >
-                {/* Image Container */}
-                <div className="relative h-64 overflow-hidden">
-                  <img
-                    src={project.img}
-                    alt={project.title}
-                    loading="lazy"
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-                  
-                  {/* Category Badge */}
-                  <div className="absolute top-4 left-4">
-                    <span className="px-3 py-1 bg-amber-500/90 text-black text-sm font-semibold rounded-full">
-                      {project.category}
-                    </span>
-                  </div>
-                </div>
-
-                {/* Content */}
-                <div className="p-6">
-                  <h3 className="text-xl font-bold mb-2 group-hover:text-amber-400 transition-colors">
-                    {project.title}
-                  </h3>
-                  <div className="flex items-center gap-2 text-gray-400">
-                    <MapPin className="w-4 h-4" />
-                    <span className="text-sm">Various Locations</span>
-                  </div>
-                </div>
-
-                {/* View Project Button */}
-                <div className="absolute bottom-6 right-6">
-                  <button className="w-10 h-10 rounded-full bg-gradient-to-r from-amber-500 to-orange-600 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:scale-110">
-                    <ArrowRight className="w-5 h-5 text-black" />
-                  </button>
-                </div>
-              </motion.div>
-            ))}
+      {/* ================= TRUST STRIP ================= */}
+      <section className="py-16 bg-black border-t border-gray-800">
+        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-8 text-center">
+          <div>
+            <Award className="w-8 h-8 text-amber-400 mx-auto mb-3" />
+            <p className="font-semibold">Quality Assured Work</p>
+            <p className="text-sm text-gray-400 mt-1">Built to industry standards</p>
           </div>
 
-          {/* View All Button */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="text-center mt-12"
-          >
-            <button className="px-8 py-3 border-2 border-gray-800 hover:border-amber-500 rounded-xl text-gray-300 hover:text-amber-400 transition-all duration-300 group">
-              <span className="flex items-center gap-2">
-                View All Projects
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
-              </span>
-            </button>
-          </motion.div>
+          <div>
+            <Clock className="w-8 h-8 text-amber-400 mx-auto mb-3" />
+            <p className="font-semibold">On-Time Delivery</p>
+            <p className="text-sm text-gray-400 mt-1">We respect your deadlines</p>
+          </div>
+
+          <div>
+            <Mail className="w-8 h-8 text-amber-400 mx-auto mb-3" />
+            <p className="font-semibold">Reliable Support</p>
+            <p className="text-sm text-gray-400 mt-1">Clear communication always</p>
+          </div>
         </div>
       </section>
     </div>
