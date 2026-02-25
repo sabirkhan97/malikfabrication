@@ -56,7 +56,7 @@ const stats = [
 export default function Home() {
   return (
     <div className="bg-[#0b0f14] text-white">
-
+      <h1>Best Welding & Fabrication Shop in Gurgaon</h1>
       {/* ================= HERO ================= */}
       <section className="relative min-h-screen flex items-center">
         <img
@@ -97,10 +97,12 @@ export default function Home() {
                 <ArrowRight className="w-5 h-5" />
               </button>
 
-              <div className="flex items-center gap-3 text-gray-300">
-                <Phone className="w-5 h-5 text-amber-400" />
-                +91 7838170214
-              </div>
+              <a href="tel:+917838170214">
+                <div className="flex items-center gap-3 text-gray-300 cursor-pointer">
+                  <Phone className="w-5 h-5 text-amber-400" />
+                  +91 7838170214
+                </div>
+              </a>
             </div>
 
             {/* STATS */}
