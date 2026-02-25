@@ -92,10 +92,10 @@ export default function Home() {
 
             {/* CTA */}
             <div className="flex flex-wrap items-center gap-6 mt-10">
-              <button className="bg-amber-500 hover:bg-amber-600 text-black font-bold px-8 py-4 rounded-xl flex items-center gap-3 transition">
+              {/* <button className="bg-amber-500 hover:bg-amber-600 text-black font-bold px-8 py-4 rounded-xl flex items-center gap-3 transition">
                 Get Free Quote
                 <ArrowRight className="w-5 h-5" />
-              </button>
+              </button> */}
 
               <a href="tel:+917838170214">
                 <div className="flex items-center gap-3 text-gray-300 cursor-pointer">

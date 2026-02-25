@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://malikfabrication.vercel.app/sitemap.xml
+Sitemap: https://malikfabrication.in/sitemap.xml
