@@ -14,25 +14,25 @@ const Dashboard = () => {
 
   return (
     <div>
-      <Header 
+      <Header
         homeRef={homeRef}
         servicesRef={servicesRef}
         aboutRef={aboutRef}
         contactRef={contactRef}
       />
-      
+
       <section ref={homeRef}>
         <Home />
       </section>
-            
+
       <section ref={aboutRef}>
         <AboutSection />
       </section>
-      
+
       <section ref={contactRef}>
         <ContactPage />
       </section>
-      
+
       <Footer />
     </div>
   );
