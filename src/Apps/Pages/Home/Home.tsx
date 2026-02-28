@@ -146,7 +146,6 @@ const repairWeldingSection = {
 export default function Home() {
   return (
     <div className="bg-[#0b0f14] text-white">
-      <h1>Best Welding & Fabrication Shop in Gurgaon</h1>
       {/* ================= HERO ================= */}
       <section className="relative min-h-screen flex items-center">
         <img
@@ -156,18 +155,18 @@ export default function Home() {
         />
         <div className="absolute inset-0 bg-black/80" />
 
-        <div className="relative z-10 max-w-6xl mx-auto px-6">
+        <div className="relative z-10 md:max-w-6xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-5xl md:text-7xl font-bold leading-tight">
+            <h1 className="text-4xl md:text-7xl w-full font-semibold leading-tight">
               <span className="text-amber-400">Malik</span>{" "}
               <span className="text-gray-200">Fabrication</span>
             </h1>
 
-            <p className="mt-6 max-w-2xl text-xl text-gray-300">
+            <p className="mt-6 max-w-2xl text-lg text-gray-300">
               Precision Metal Fabrication & Welding Solutions for
               Residential, Commercial & Industrial Needs.
               All kinds of Fancy Gates & Grills,
@@ -189,6 +188,8 @@ export default function Home() {
                 </div>
               </a>
             </div>
+
+            <h1 className="text-md w-full text-amber-400 mt-1">Best Welding & Fabrication Shop in Gurgaon</h1>
 
             {/* STATS */}
             <div className="grid grid-cols-3 gap-6 mt-16 max-w-xl">
@@ -269,7 +270,7 @@ export default function Home() {
               <p className="text-gray-400 leading-relaxed mb-8">
                 {weldingServicesGurgaon.description}
               </p>
-              
+
               <div className="grid sm:grid-cols-2 gap-3 mb-8">
                 {weldingServicesGurgaon.features.map((feature, idx) => (
                   <div key={idx} className="flex items-center gap-2">
@@ -362,7 +363,7 @@ export default function Home() {
               <p className="text-gray-400 leading-relaxed mb-8">
                 {ironGateSection.description}
               </p>
-              
+
               <div className="grid sm:grid-cols-2 gap-3 mb-8">
                 {ironGateSection.features.map((feature, idx) => (
                   <div key={idx} className="flex items-center gap-2">
@@ -406,7 +407,7 @@ export default function Home() {
               <p className="text-gray-400 leading-relaxed mb-8">
                 {steelRailingSection.description}
               </p>
-              
+
               <div className="grid sm:grid-cols-2 gap-3 mb-8">
                 {steelRailingSection.features.map((feature, idx) => (
                   <div key={idx} className="flex items-center gap-2">
@@ -499,7 +500,7 @@ export default function Home() {
               <p className="text-gray-400 leading-relaxed mb-8">
                 {metalShedSection.description}
               </p>
-              
+
               <div className="grid sm:grid-cols-2 gap-3 mb-8">
                 {metalShedSection.features.map((feature, idx) => (
                   <div key={idx} className="flex items-center gap-2">
@@ -543,7 +544,7 @@ export default function Home() {
               <p className="text-gray-400 leading-relaxed mb-8">
                 {repairWeldingSection.description}
               </p>
-              
+
               <div className="grid sm:grid-cols-2 gap-3 mb-8">
                 {repairWeldingSection.features.map((feature, idx) => (
                   <div key={idx} className="flex items-center gap-2">

@@ -59,9 +59,9 @@ const Header = forwardRef<HTMLDivElement, HeaderProps>(({ homeRef, servicesRef, 
   return (
     <header
       ref={ref}
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled
-          ? 'bg-white/95 backdrop-blur-md shadow-sm'
-          : 'bg-white'
+      className={`fixed top-0 min-w-screen z-50 transition-all duration-300 ${isScrolled
+        ? 'bg-white/95 backdrop-blur-md shadow-sm'
+        : 'bg-white'
         }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -71,14 +71,16 @@ const Header = forwardRef<HTMLDivElement, HeaderProps>(({ homeRef, servicesRef, 
             onClick={() => scrollToSection(homeRef, 'home')}
             className="flex items-center space-x-2 group"
           >
-            {/* <div className="w-8 h-8 bg-gradient-to-br from-amber-500 to-amber-600 rounded-lg flex items-center justify-center transform group-hover:scale-105 transition-transform duration-200">
-              <span className="text-white font-bold text-lg">M</span>
-            </div> */}
+            {/* <div className="w-14 h-14 flex items-center justify-center transform group-hover:scale-105 transition-transform duration-200"> */}
+            <img src='public/MkLogo.png' alt='logo' className='rounded-full h-13 ' />
+            {/* </div> */}
             <span className="text-xl font-bold text-gray-900">
               Malik <span className="text-amber-600">Fabrication</span>
               <span> <div className="flex items-center gap-2">
-                <Phone className="w-4 h-4" />
-                <span>+91 7838170214</span>
+                <a href="tel:+917838170214" className='flex items-center gap-3'>
+                  <Phone className="w-6 h-6" />
+                  <span>+91 7838170214</span>
+                </a>
               </div></span>
             </span>
           </button>
@@ -90,8 +92,8 @@ const Header = forwardRef<HTMLDivElement, HeaderProps>(({ homeRef, servicesRef, 
                 key={item.id}
                 onClick={() => scrollToSection(item.ref, item.id)}
                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${activeLink === item.id
-                    ? 'text-amber-600 bg-amber-50'
-                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                  ? 'text-amber-600 bg-amber-50'
+                  : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
                   }`}
               >
                 {item.name}
@@ -106,10 +108,10 @@ const Header = forwardRef<HTMLDivElement, HeaderProps>(({ homeRef, servicesRef, 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 rounded-lg text-gray-600 hover:bg-gray-100 transition-colors duration-200"
+            className="md:hidden p-2 rounded-lg text-gray-600 hover:bg-gray-100 transition-colors duration-200 absolute top-2 right-1"
             aria-label="Toggle menu"
           >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {isMenuOpen ? <X size={24} /> : <Menu size={28} />}
           </button>
         </div>
       </div>
@@ -118,7 +120,7 @@ const Header = forwardRef<HTMLDivElement, HeaderProps>(({ homeRef, servicesRef, 
       {isMenuOpen && (
         <div
           ref={menuRef}
-          className="md:hidden bg-white border-t border-gray-100"
+          className="md:hidden bg-white border-t border-gray-100 min-w-screen"
         >
           <div className="px-4 py-3 space-y-1">
             {navItems.map((item) => (
@@ -126,8 +128,8 @@ const Header = forwardRef<HTMLDivElement, HeaderProps>(({ homeRef, servicesRef, 
                 key={item.id}
                 onClick={() => scrollToSection(item.ref, item.id)}
                 className={`block w-full text-left px-4 py-3 rounded-lg text-sm font-medium transition-colors duration-200 ${activeLink === item.id
-                    ? 'text-amber-600 bg-amber-50'
-                    : 'text-gray-600 hover:bg-gray-50'
+                  ? 'text-amber-600 bg-amber-50'
+                  : 'text-gray-600 hover:bg-gray-50'
                   }`}
               >
                 {item.name}
