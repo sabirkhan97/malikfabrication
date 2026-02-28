@@ -72,7 +72,7 @@ const Header = forwardRef<HTMLDivElement, HeaderProps>(({ homeRef, servicesRef, 
             className="flex items-center space-x-2 group"
           >
             {/* <div className="w-14 h-14 flex items-center justify-center transform group-hover:scale-105 transition-transform duration-200"> */}
-            <img src='public/MkLogo.png' alt='logo' className='rounded-full h-13 ' />
+            <img src='src/Apps/Pages/Header/MkLogo.png' alt='logo' className='rounded-full h-13 ' />
             {/* </div> */}
             <span className="text-xl font-bold text-gray-900">
               Malik <span className="text-amber-600">Fabrication</span>
