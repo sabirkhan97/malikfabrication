@@ -467,9 +467,9 @@ export default function Home() {
               <img
                 src={metalShedSection.image}
                 alt="Metal Shed Construction in Gurgaon"
-                className="relative rounded-2xl shadow-2xl w-full h-[400px] object-cover"
+                className="relative rounded-2xl shadow-2xl w-full h-100 object-cover"
               />
-              <div className="absolute -bottom-6 -right-6 bg-orange-500 text-white px-6 py-4 rounded-xl">
+              <div className="absolute  -bottom-6 -right-6 md:-bottom-6 md:-right-6 bg-orange-500 text-white px-6 py-4 rounded-xl">
                 <div className="flex items-center gap-3">
                   <Warehouse className="w-6 h-6" />
                   <div>

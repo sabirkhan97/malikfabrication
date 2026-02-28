@@ -99,10 +99,11 @@ const Header = forwardRef<HTMLDivElement, HeaderProps>(({ homeRef, servicesRef, 
                 {item.name}
               </button>
             ))}
-
-            <button className="ml-4 px-6 py-2 bg-amber-600 hover:bg-amber-700 text-white font-medium rounded-lg transition-colors duration-200">
-              Get Quote
-            </button>
+            <a href="tel:+917838170214">
+              <button className="ml-4 px-6 py-2 bg-amber-600 hover:bg-amber-700 text-white font-medium rounded-lg transition-colors duration-200">
+                Get Quote
+              </button>
+            </a>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -135,10 +136,12 @@ const Header = forwardRef<HTMLDivElement, HeaderProps>(({ homeRef, servicesRef, 
                 {item.name}
               </button>
             ))}
+            <a href="tel:+917838170214">
+              <button className="w-full mt-2 px-4 py-3 bg-amber-600 hover:bg-amber-700 text-white font-medium rounded-lg transition-colors duration-200">
+                Get Quote
+              </button>
+            </a>
 
-            <button className="w-full mt-2 px-4 py-3 bg-amber-600 hover:bg-amber-700 text-white font-medium rounded-lg transition-colors duration-200">
-              Get Quote
-            </button>
           </div>
         </div>
       )}
