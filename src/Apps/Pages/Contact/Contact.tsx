@@ -1,374 +1,291 @@
-import { motion } from "framer-motion";
-import { FiMapPin, FiPhone, FiMail, FiClock } from "react-icons/fi";
+import { useState } from 'react';
+import { motion } from 'framer-motion';
+import { MapPin, Phone, Mail, Clock, Send, CheckCircle } from 'lucide-react';
 
-const contactItems = [
+const contactInfo = [
   {
-    icon: FiMapPin,
-    label: "Workshop Location",
-    lines: [
-      "663/25 Arjun Nagar, Street No. 8",
-      "Near Police Chowki, Gurugram, Haryana",
+    icon: MapPin,
+    title: 'Workshop Location',
+    details: [
+      '663/25 Arjun Nagar, Street No. 8',
+      'Near Police Chowki',
+      'Gurugram, Haryana',
     ],
-    action: { text: "Get Directions →", href: "https://maps.google.com" },
+    action: { text: 'Get Directions', href: 'https://maps.google.com' },
   },
   {
-    icon: FiPhone,
-    label: "Call the Shop",
-    lines: ["+91 78381 70214", "+91 83839 28255", "+91 92893 77069"],
-    action: { text: "Call Now →", href: "tel:+917838170214" },
+    icon: Phone,
+    title: 'Call Us',
+    details: ['+91 78381 70214', '+91 83839 28255', '+91 92893 77069'],
+    action: { text: 'Call Now', href: 'tel:+917838170214' },
   },
   {
-    icon: FiMail,
-    label: "Email Us",
-    lines: ["info@mkfabrication.com", "sales@mkfabrication.com"],
-    action: { text: "Send Email →", href: "mailto:info@mkfabrication.com" },
+    icon: Mail,
+    title: 'Email Us',
+    details: ['info@mkfabrication.com', 'sales@mkfabrication.com'],
+    action: { text: 'Send Email', href: 'mailto:info@mkfabrication.com' },
   },
   {
-    icon: FiClock,
-    label: "Working Hours",
-    lines: ["Mon – Sat", "8:00 AM – 6:00 PM"],
+    icon: Clock,
+    title: 'Working Hours',
+    details: ['Monday - Saturday', '8:00 AM - 6:00 PM', 'Sunday: Closed'],
     action: null,
   },
 ];
 
-export default function ContactPage() {
+export default function Contact() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    service: '',
+    message: '',
+  });
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsLoading(true);
+    
+    // Simulate form submission
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    
+    setIsLoading(false);
+    setIsSubmitted(true);
+    
+    // Reset form after 3 seconds
+    setTimeout(() => {
+      setIsSubmitted(false);
+      setFormData({ name: '', email: '', phone: '', service: '', message: '' });
+    }, 3000);
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
   return (
-    <section style={{
-      background: "#080808",
-      color: "#f0f0f0",
-      padding: "88px 0 0",
-      position: "relative",
-      overflow: "hidden",
-      fontFamily: "'Barlow Condensed', sans-serif",
-    }}>
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700;800;900&family=Barlow:wght@300;400;500&display=swap');
+    <div className="bg-white">
+      {/* Hero Section */}
+      <section className="relative pt-28 pb-16 bg-gradient-to-br from-blue-50 via-white to-orange-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center"
+          >
+            <div className="inline-flex items-center gap-2 bg-blue-100 text-[#1e40af] px-4 py-2 rounded-full text-sm font-medium mb-6">
+              <span className="w-2 h-2 bg-[#e05a00] rounded-full animate-pulse" />
+              Get In Touch
+            </div>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+              Contact <span className="text-[#e05a00]">Us</span>
+            </h1>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Have a project in mind? We'd love to hear from you. Send us a message
+              and we'll respond as soon as possible.
+            </p>
+          </motion.div>
+        </div>
+      </section>
 
-        .contact-grid-bg {
-          position: absolute; inset: 0;
-          opacity: 0.018;
-          background-image:
-            repeating-linear-gradient(0deg,#fff 0,#fff 1px,transparent 1px,transparent 56px),
-            repeating-linear-gradient(90deg,#fff 0,#fff 1px,transparent 1px,transparent 56px);
-          pointer-events: none;
-        }
-
-        /* Info card */
-        .info-card {
-          background: #0e0e0e;
-          border: 1px solid #1a1a1a;
-          padding: 28px 28px 24px;
-          position: relative;
-          overflow: hidden;
-          display: flex;
-          flex-direction: column;
-          gap: 14px;
-          transition: border-color 0.3s;
-          clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
-        }
-        .info-card:hover { border-color: #e05a0055; }
-        .info-card::before {
-          content:'';
-          position:absolute; inset:0;
-          background: linear-gradient(135deg, #e05a0010 0%, transparent 50%);
-          opacity:0; transition:opacity 0.3s;
-        }
-        .info-card:hover::before { opacity:1; }
-
-        /* Spark bottom line */
-        .card-spark {
-          position:absolute; bottom:0; left:0;
-          height:2px; width:0;
-          background:#e05a00;
-          box-shadow:0 0 8px #e05a00;
-          transition: width 0.4s ease;
-        }
-        .info-card:hover .card-spark { width:100%; }
-
-        .card-icon-wrap {
-          width: 42px; height: 42px;
-          background: #181818;
-          display: flex; align-items:center; justify-content:center;
-          flex-shrink:0;
-          transition: background 0.25s;
-          clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
-        }
-        .info-card:hover .card-icon-wrap { background: #e05a00; }
-        .card-icon-wrap svg {
-          color: #e05a00;
-          transition: color 0.25s;
-          font-size: 17px;
-        }
-        .info-card:hover .card-icon-wrap svg { color: #000; }
-
-        .card-label {
-          font-family:'Barlow Condensed',sans-serif;
-          font-size:11px; font-weight:700;
-          letter-spacing:0.22em; text-transform:uppercase;
-          color:#444; display:block; margin-bottom:4px;
-        }
-        .card-line {
-          font-family:'Barlow',sans-serif;
-          font-size:14px; font-weight:400;
-          color:#888; line-height:1.65;
-          display:block;
-        }
-        .card-action {
-          display:inline-block;
-          font-family:'Barlow Condensed',sans-serif;
-          font-size:12px; font-weight:700;
-          letter-spacing:0.15em; text-transform:uppercase;
-          color:#e05a00;
-          text-decoration:none;
-          margin-top:4px;
-          transition:opacity 0.2s;
-          position:relative;
-          z-index:1;
-        }
-        .card-action:hover { opacity:0.7; }
-
-        /* Map container */
-        .map-wrap {
-          position:relative;
-          overflow:hidden;
-          border:1px solid #1a1a1a;
-        }
-        .map-wrap::before {
-          content:'';
-          position:absolute; inset:0;
-          border:2px solid transparent;
-          background: linear-gradient(#0e0e0e,#0e0e0e) padding-box,
-                      linear-gradient(135deg,#e05a00,transparent,transparent) border-box;
-          pointer-events:none; z-index:2;
-        }
-        .map-overlay-label {
-          position:absolute; top:16px; left:16px;
-          background:#080808cc;
-          backdrop-filter:blur(6px);
-          border:1px solid #e05a00;
-          padding:8px 14px;
-          font-family:'Barlow Condensed',sans-serif;
-          font-size:12px; font-weight:700;
-          letter-spacing:0.18em; text-transform:uppercase;
-          color:#e05a00;
-          z-index:3;
-          clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px));
-          display:flex; align-items:center; gap:7px;
-        }
-        .map-live-dot {
-          width:6px; height:6px; border-radius:50%;
-          background:#e05a00; box-shadow:0 0 6px #e05a00;
-          animation:pulse-map 1.6s ease-in-out infinite;
-        }
-        @keyframes pulse-map {
-          0%,100%{opacity:1;transform:scale(1);}
-          50%{opacity:0.3;transform:scale(0.5);}
-        }
-
-        /* H rule */
-        .h-rule { height:1px; background:linear-gradient(90deg,#e05a00,#1a1a1a); opacity:0.45; }
-
-        /* Live dot header */
-        .live-dot {
-          width:7px;height:7px;border-radius:50%;
-          background:#e05a00;box-shadow:0 0 7px #e05a00;
-          animation:pulse-map 1.6s ease-in-out infinite;
-          flex-shrink:0;
-        }
-
-        /* Bottom weld bead */
-        .weld-strip { display:flex; height:8px; overflow:hidden; }
-        .weld-bead {
-          flex:1;
-          clip-path:ellipse(45% 60% at 50% 50%);
-          margin:0 1px;
-        }
-      `}</style>
-
-      <div className="contact-grid-bg" />
-
-      <div style={{ maxWidth: 1100, margin: "0 auto", padding: "0 24px" }}>
-
-        {/* ── HEADER ── */}
-        <motion.div
-          initial={{ opacity: 0, y: 22 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          style={{ marginBottom: 52 }}
-        >
-          <div style={{ display:"flex", alignItems:"center", gap:10, marginBottom:14 }}>
-            <div className="live-dot" />
-            <span style={{
-              fontFamily:"'Barlow Condensed',sans-serif",
-              fontSize:11, fontWeight:700,
-              letterSpacing:"0.25em", textTransform:"uppercase",
-              color:"#e05a00",
-            }}>MK Fabrication · Gurugram</span>
-          </div>
-
-          <h1 style={{
-            fontFamily:"'Barlow Condensed',sans-serif",
-            fontSize:"clamp(52px,11vw,96px)",
-            fontWeight:900,
-            textTransform:"uppercase",
-            lineHeight:0.9,
-            letterSpacing:"-0.01em",
-            margin:"0 0 20px",
-          }}>
-            Get In<br />
-            <span style={{ color:"transparent", WebkitTextStroke:"2px #e05a00" }}>Touch</span>
-            <span style={{ color:"#e05a00" }}>.</span>
-          </h1>
-
-          <p style={{
-            fontFamily:"'Barlow',sans-serif",
-            fontSize:"clamp(14px,2vw,16px)",
-            color:"#555",
-            maxWidth:440,
-            lineHeight:1.75,
-            margin:0,
-          }}>
-            Come by the shop, call us, or send a message. We'll give you a straight answer and a fair quote.
-          </p>
-        </motion.div>
-
-        {/* ── MAIN GRID ── */}
-        <div style={{
-          display:"grid",
-          gridTemplateColumns:"repeat(auto-fit,minmax(280px,1fr))",
-          gap:2,
-          marginBottom:2,
-        }}>
-          {contactItems.map((item, i) => {
-            const Icon = item.icon;
-            return (
-              <motion.div
-                key={i}
-                className="info-card"
-                initial={{ opacity:0, y:20 }}
-                whileInView={{ opacity:1, y:0 }}
-                viewport={{ once:true }}
-                transition={{ duration:0.4, delay:i*0.08 }}
-              >
-                <div className="card-spark" />
-                <div style={{ display:"flex", alignItems:"center", gap:14 }}>
-                  <div className="card-icon-wrap">
-                    <Icon />
-                  </div>
-                  <span className="card-label">{item.label}</span>
-                </div>
-                <div>
-                  {item.lines.map((line, j) => (
-                    <span key={j} className="card-line">{line}</span>
-                  ))}
-                </div>
-                {item.action && (
-                  <a href={item.action.href} className="card-action">
-                    {item.action.text}
-                  </a>
+      {/* Contact Section */}
+      <section className="py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12">
+            {/* Contact Form */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
+                <h2 className="text-2xl font-bold text-gray-900 mb-6">Send Us a Message</h2>
+                
+                {isSubmitted ? (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    className="text-center py-12"
+                  >
+                    <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
+                    <h3 className="text-xl font-semibold text-gray-900 mb-2">Message Sent!</h3>
+                    <p className="text-gray-600">Thank you for contacting us. We'll get back to you soon.</p>
+                  </motion.div>
+                ) : (
+                  <form onSubmit={handleSubmit} className="space-y-6">
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <div>
+                        <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                          Full Name *
+                        </label>
+                        <input
+                          type="text"
+                          id="name"
+                          name="name"
+                          value={formData.name}
+                          onChange={handleChange}
+                          required
+                          className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#1e40af] focus:ring-2 focus:ring-blue-100 outline-none transition-colors"
+                          placeholder="John Doe"
+                        />
+                      </div>
+                      <div>
+                        <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                          Email Address *
+                        </label>
+                        <input
+                          type="email"
+                          id="email"
+                          name="email"
+                          value={formData.email}
+                          onChange={handleChange}
+                          required
+                          className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#1e40af] focus:ring-2 focus:ring-blue-100 outline-none transition-colors"
+                          placeholder="john@example.com"
+                        />
+                      </div>
+                    </div>
+                    
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <div>
+                        <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                          Phone Number
+                        </label>
+                        <input
+                          type="tel"
+                          id="phone"
+                          name="phone"
+                          value={formData.phone}
+                          onChange={handleChange}
+                          className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#1e40af] focus:ring-2 focus:ring-blue-100 outline-none transition-colors"
+                          placeholder="+91 98765 43210"
+                        />
+                      </div>
+                      <div>
+                        <label htmlFor="service" className="block text-sm font-medium text-gray-700 mb-2">
+                          Service Required
+                        </label>
+                        <select
+                          id="service"
+                          name="service"
+                          value={formData.service}
+                          onChange={handleChange}
+                          className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#1e40af] focus:ring-2 focus:ring-blue-100 outline-none transition-colors"
+                        >
+                          <option value="">Select a service</option>
+                          <option value="fabrication">Metal Fabrication</option>
+                          <option value="welding">Welding Services</option>
+                          <option value="sheds">Industrial Sheds</option>
+                          <option value="gates">Gates & Grills</option>
+                          <option value="repair">Repair & Restoration</option>
+                          <option value="structural">Structural Fabrication</option>
+                          <option value="other">Other</option>
+                        </select>
+                      </div>
+                    </div>
+                    
+                    <div>
+                      <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                        Message *
+                      </label>
+                      <textarea
+                        id="message"
+                        name="message"
+                        value={formData.message}
+                        onChange={handleChange}
+                        required
+                        rows={5}
+                        className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#1e40af] focus:ring-2 focus:ring-blue-100 outline-none transition-colors resize-none"
+                        placeholder="Tell us about your project requirements..."
+                      />
+                    </div>
+                    
+                    <button
+                      type="submit"
+                      disabled={isLoading}
+                      className="w-full bg-[#e05a00] hover:bg-[#f97316] text-white font-semibold py-4 rounded-lg transition-colors disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                    >
+                      {isLoading ? (
+                        <>
+                          <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                          Sending...
+                        </>
+                      ) : (
+                        <>
+                          <Send size={20} />
+                          Send Message
+                        </>
+                      )}
+                    </button>
+                  </form>
                 )}
-              </motion.div>
-            );
-          })}
-        </div>
+              </div>
+            </motion.div>
 
-        {/* ── MAP — full row ── */}
-        <motion.div
-          initial={{ opacity:0, y:16 }}
-          whileInView={{ opacity:1, y:0 }}
-          viewport={{ once:true }}
-          transition={{ duration:0.5, delay:0.2 }}
-          className="map-wrap"
-          style={{ height: 360 }}
-        >
-          <div className="map-overlay-label">
-            <div className="map-live-dot" />
-            MK Fabrication Workshop
+            {/* Contact Info */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="space-y-6"
+            >
+              {contactInfo.map((info, index) => {
+                const Icon = info.icon;
+                return (
+                  <div
+                    key={index}
+                    className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-shadow"
+                  >
+                    <div className="flex items-start gap-4">
+                      <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <Icon className="w-6 h-6 text-[#1e40af]" />
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-lg font-semibold text-gray-900 mb-2">{info.title}</h3>
+                        {info.details.map((detail, idx) => (
+                          <p key={idx} className="text-gray-600">{detail}</p>
+                        ))}
+                        {info.action && (
+                          <a
+                            href={info.action.href}
+                            className="inline-block mt-3 text-[#e05a00] font-medium hover:underline"
+                          >
+                            {info.action.text} →
+                          </a>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </motion.div>
           </div>
-          <iframe
-            width="100%"
-            height="100%"
-            loading="lazy"
-            style={{ border:"none", display:"block", filter:"grayscale(100%) brightness(0.5) contrast(1.2)" }}
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14012.566329!2d77.0188646!3d28.4580417!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d194c86532c79%3A0x28811e37fa0d0a36!2sMalik%20Fabrication!5e0!3m2!1sen!2sin!4v1733740000000"
-          />
-        </motion.div>
-
-      </div>
-
-      {/* ── BOTTOM CTA STRIP ── */}
-      <motion.div
-        initial={{ opacity:0 }}
-        whileInView={{ opacity:1 }}
-        viewport={{ once:true }}
-        transition={{ duration:0.4, delay:0.3 }}
-        style={{
-          marginTop:2,
-          background:"#e05a00",
-          padding:"24px 32px",
-          display:"flex",
-          alignItems:"center",
-          justifyContent:"space-between",
-          flexWrap:"wrap",
-          gap:16,
-        }}
-      >
-        <div>
-          <p style={{
-            fontFamily:"'Barlow Condensed',sans-serif",
-            fontSize:"clamp(18px,4vw,24px)",
-            fontWeight:900,
-            textTransform:"uppercase",
-            letterSpacing:"0.06em",
-            color:"#000",
-            margin:0,
-          }}>
-            Ready to start a project?
-          </p>
-          <p style={{
-            fontFamily:"'Barlow',sans-serif",
-            fontSize:13,
-            color:"rgba(0,0,0,0.6)",
-            margin:"4px 0 0",
-          }}>
-            Walk in Mon–Sat · 8 AM to 6 PM
-          </p>
         </div>
-        <a
-          href="tel:+917838170214"
-          style={{
-            fontFamily:"'Barlow Condensed',sans-serif",
-            fontSize:14,
-            fontWeight:900,
-            letterSpacing:"0.18em",
-            textTransform:"uppercase",
-            padding:"14px 28px",
-            background:"#000",
-            color:"#fff",
-            textDecoration:"none",
-            display:"inline-block",
-            clipPath:"polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px))",
-            transition:"opacity 0.2s",
-          }}
-        >
-          Call the Shop →
-        </a>
-      </motion.div>
+      </section>
 
-      {/* Weld bead strip */}
-      <div className="weld-strip">
-        {Array.from({ length: 80 }).map((_, i) => (
-          <div
-            key={i}
-            className="weld-bead"
-            style={{
-              background: i % 4 === 0 ? "#ff6a00" : "#e05a00",
-              opacity: 0.45 + (i % 3) * 0.18,
-            }}
-          />
-        ))}
-      </div>
-    </section>
+      {/* Map Section */}
+      <section className="py-12 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14012.566329!2d77.0188646!3d28.4580417!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d194c86532c79%3A0x28811e37fa0d0a36!2sMalik%20Fabrication!5e0!3m2!1sen!2sin!4v1733740000000"
+              width="100"
+              height="450"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Malik Fabrication Location"
+            />
+          </div>
+        </div>
+      </section>
+    </div>
   );
 }
+
