@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { MapPin, Phone, Mail, Clock, Send, CheckCircle, ArrowRight } from 'lucide-react';
+import { supabase } from './supabase';
 
 const contactInfo = [
   {
@@ -274,23 +275,42 @@ const CSS = `
 `;
 
 export default function Contact() {
-  const [formData, setFormData] = useState({ name: '', email: '', phone: '', service: '', message: '' });
+  const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = async (e:any) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
     setIsLoading(true);
-    await new Promise(r => setTimeout(r, 1000));
+
+    const { error } = await supabase
+      .from("contact_requests")
+      .insert([
+        {
+          name: formData.name,
+          phone: formData.phone,
+          email: formData.email,
+          project_details: formData.message || null,
+        },
+      ]);
+
     setIsLoading(false);
+
+    if (error) {
+      console.error("Insert error:", error);
+      alert("Failed to send message");
+      return;
+    }
+
     setIsSubmitted(true);
+
     setTimeout(() => {
       setIsSubmitted(false);
-      setFormData({ name: '', email: '', phone: '', service: '', message: '' });
+      setFormData({ name: "", email: "", phone: "", message: "" });
     }, 3500);
-  };
+  };;
 
-  const handleChange = (e:any) => setFormData({ ...formData, [e.target.name]: e.target.value });
+  const handleChange = (e: any) => setFormData({ ...formData, [e.target.name]: e.target.value });
 
   return (
     <>

@@ -315,6 +315,7 @@ const CSS = `
     color: white; padding: 14px 30px; border-radius: 6px;
     font-weight: 600; font-size: 14.5px; text-decoration: none;
     transition: background 0.2s;
+    
   }
   .mf-cta-btn2:hover { background: rgba(255,255,255,0.14); }
 
@@ -351,6 +352,25 @@ const CSS = `
     .mf-svc-hd { flex-direction: column; align-items: flex-start; }
     .mf-section { padding: 60px 0; }
   }
+.ab-cta-btn2 {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  color: #111;
+  padding: 14px 30px;
+  border-radius: 6px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14.5px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.ab-cta-btn2:hover {
+  background: rgba(0, 0, 0, 0.08);
+}
   @media (max-width: 480px) {
     .mf-trust-grid { grid-template-columns: 1fr; }
     .mf-hero-title { font-size: 40px; }
@@ -392,6 +412,7 @@ export default function Home() {
                 welding, and structural steel work. Quality craftsmanship since 2008.
               </p>
 
+
               <div className="mf-actions">
                 <Link to="/contact" className="mf-btn-primary">
                   Get Free Quote <ArrowRight size={16} />
@@ -399,6 +420,8 @@ export default function Home() {
                 <Link to="/services" className="mf-btn-secondary">
                   Our Services <ChevronRight size={16} />
                 </Link>
+                <a href="tel:+917838170214" className="ab-cta-btn2"><Phone size={16} /> +91 78381 70214</a>
+
               </div>
 
               <motion.div
@@ -530,7 +553,7 @@ export default function Home() {
                 <Link to="/contact" className="mf-cta-btn1">
                   Get Free Quote <ArrowRight size={16} />
                 </Link>
-                <a href="tel:+917838170214" className="mf-cta-btn2">
+                <a href="tel:+917838170214" className="mf-cta-btn2 ">
                   <Phone size={16} /> +91 78381 70214
                 </a>
               </div>
