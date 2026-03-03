@@ -9,45 +9,32 @@ import SeoPage from '../Pages/seo/SeoPage';
 import WeldingSpecializations from '../Pages/ourSpecialization/OurSpecialization';
 
 const Dashboard = () => {
-  const homeRef = useRef<HTMLDivElement>(null);
-  const servicesRef = useRef<HTMLDivElement>(null);
-  const aboutRef = useRef<HTMLDivElement>(null);
-  const contactRef = useRef<HTMLDivElement>(null);
-  const weldingServiceRef = useRef<HTMLDivElement>(null)
-  const seoRef = useRef<HTMLDivElement>(null)
-  const weldingSpecializationsRef = useRef<HTMLDivElement>(null)
+
   return (
     <div>
       <Header
-        homeRef={homeRef}
-        servicesRef={servicesRef}
-        aboutRef={aboutRef}
-        contactRef={contactRef}
-        weldingServiceRef={weldingServiceRef}
-        seoRef={seoRef}
-        weldingSpecializationsRef={weldingSpecializationsRef}
       />
 
-      <section ref={homeRef}>
+      <section>
         <Home />
       </section>
 
-      <section ref={weldingServiceRef}>
+      <section >
         <WeldingServices />
       </section>
 
-      <section ref={weldingSpecializationsRef}>
+      <section >
         <WeldingSpecializations />
       </section>
 
-      <section ref={seoRef}>
+      <section >
         <SeoPage />
       </section>
-      <section ref={aboutRef}>
+      <section >
         <AboutSection />
       </section>
 
-      <section ref={contactRef}>
+      <section >
         <ContactPage />
       </section>
 
