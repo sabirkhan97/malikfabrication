@@ -1,30 +1,3 @@
-  //  <div className="hidden lg:block bg-[#1e40af] text-white py-2">
-  //       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-  //         <div className="flex justify-between items-center text-sm">
-  //           <div className="flex items-center gap-6">
-  //             <a
-  //               href="tel:+917838170214"
-  //               className="flex items-center gap-2 hover:text-blue-200 transition-colors"
-  //             >
-  //               <Phone size={14} />
-  //               +91 78381 70214
-  //             </a>
-  //             <a
-  //               href="mailto:info@mkfabrication.com"
-  //               className="flex items-center gap-2 hover:text-blue-200 transition-colors"
-  //             >
-  //               <Mail size={14} />
-  //               info@mkfabrication.com
-  //             </a>
-  //           </div>
-  //           <div className="text-blue-200 text-sm">
-  //             Mon - Sat: 8:00 AM - 6:00 PM
-  //           </div>
-  //         </div>
-  //       </div>
-  //     </div>
-
-
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Phone, Mail, ChevronRight } from 'lucide-react';
@@ -264,10 +237,10 @@ export default function Header() {
         <div className="hd-topbar-inner">
           <div className="hd-topbar-left">
             <a href="tel:+917838170214" className="hd-topbar-link">
-              <Phone /> +91 78381 70214
+              <Phone /> +91 78381 70214 
             </a>
-            <a href="mailto:info@mkfabrication.com" className="hd-topbar-link">
-              <Mail /> info@mkfabrication.com
+            <a href="mailto:malikfabrication.welds@gmail.com" className="hd-topbar-link">
+              <Mail /> malikfabrication.welds@gmail.com
             </a>
           </div>
           <div className="hd-topbar-right">Mon – Sat &nbsp;·&nbsp; 8:00 AM – 6:00 PM</div>
@@ -324,8 +297,8 @@ export default function Header() {
             <a href="tel:+917838170214" className="hd-mobile-contact">
               <Phone /> +91 78381 70214
             </a>
-            <a href="mailto:info@mkfabrication.com" className="hd-mobile-contact">
-              <Mail /> info@mkfabrication.com
+            <a href="mailto:malikfabrication.welds@gmail.com" className="hd-mobile-contact">
+              <Mail /> malikfabrication.welds@gmail.com
             </a>
           </div>
 

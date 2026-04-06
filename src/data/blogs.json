@@ -1,0 +1,38 @@
+[
+  {
+    "id": 0,
+    "title": "Advanced Welding Techniques for Industrial Sheds",
+    "excerpt": "Latest MIG/TIG methods for structural integrity and longevity in fabrication projects.",
+    "image": "/Apps/Images/Roof-shed.jpg",
+    "date": "2024-10-15",
+    "author": "Malik Fabrication Team",
+    "content": "<p>In industrial shed fabrication, welding quality determines 80% of structural longevity. Advanced pulsed MIG with 85% Ar/15% CO2 achieves deeper penetration (12-15mm) and 40% fewer defects.</p><table><thead><tr><th>Technique</th><th>Penetration</th><th>Speed</th><th>Best For</th></tr></thead><tbody><tr><td>Pulsed MIG</td><td>15mm</td><td>2.5m/min</td><td>Main framework</td></tr><tr><td>TIG</td><td>8mm</td><td>0.8m/min</td><td>Critical joints</td></tr></tbody></table><h2>Parameters</h2><ul><li><strong>Wire:</strong> ER70S-6 1.2mm</li><li><strong>Voltage:</strong> 26-28V</li></ul><p>AWS D1.1 certified. Contact for weld qualification.</p>"
+  },
+  {
+    "id": 1,
+    "title": "Custom Grill Design Trends 2024",
+    "excerpt": "Contemporary grill designs combining security, aesthetics, fabrication precision.",
+    "image": "/Apps/Images/Grill.jpg",
+    "date": "2024-10-10",
+    "author": "Design Team",
+    "content": "<p>2024 trends: minimalist geometric patterns, 50x50mm hollow sections.</p><table><thead><tr><th>Application</th><th>Material</th><th>Finish</th></tr></thead><tbody><tr><td>Residential</td><td>MS</td><td>Powder coat</td></tr><tr><td>Commercial</td><td>SS304</td><td>Polished</td></tr></tbody></table><p>Laser cut, TIG weld, powder coated. Delivered 120+ projects.</p>"
+  },
+  {
+    "id": 2,
+    "title": "Boundary Wall Fabrication Guide",
+    "excerpt": "Steel grades and techniques for durable boundary solutions.",
+    "image": "/Apps/Images/BoundaryWall.jpg",
+    "date": "2024-10-05",
+    "author": "Engineering Dept.",
+    "content": "<p>Engineering for wind/impact loads: IS2062 B (250MPa), S355JR (355MPa).</p><p>Panel 2.4m H, 100x50mm posts, PCC foundation. Load tested 3.2 kN/m².</p><p>Free structural drawings with quote.</p>"
+  },
+  {
+    "id": 3,
+    "title": "Future of Metal Fabrication",
+    "excerpt": "Automation revolutionizing structural steel workflows.",
+    "image": "/Apps/Images/Workers.jpg",
+    "date": "2024-09-28",
+    "author": "Innovation Lead",
+    "content": "<p>CNC automation: 65% time reduction. Hypertherm plasma, Trumpf laser, ABB robotics.</p><table><thead><tr><th>Investment</th><th>ROI</th></tr></thead><tbody><tr><td>CNC Plasma</td><td>18 months</td></tr></tbody></table><p>92% material utilization, 3x throughput.</p>"
+  }
+]

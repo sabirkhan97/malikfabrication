@@ -184,7 +184,7 @@ export default function SteelLogo3D({ size = 320, text = 'MF', sub = 'MALIK FABR
     el.addEventListener('mousemove', onMove);
 
     /* ── Animate ── */
-    let frame;
+    let frame:any;
     const clock = new THREE.Clock();
     const animate = () => {
       frame = requestAnimationFrame(animate);
