@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { MapPin, Phone, Mail, Clock, Send, CheckCircle, ArrowRight } from 'lucide-react';
-import { supabase } from './supabase';
-
+import axios from "axios";
 const contactInfo = [
   {
     icon: MapPin,
@@ -275,40 +274,51 @@ const CSS = `
 `;
 
 export default function Contact() {
-  const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    service: "",
+    message: "",
+  }); const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     setIsLoading(true);
 
-    const { error } = await supabase
-      .from("contact_requests")
-      .insert([
-        {
-          name: formData.name,
-          phone: formData.phone,
-          email: formData.email,
-          project_details: formData.message || null,
-        },
-      ]);
+    try {
+      await axios.post("/api/contact", {
+        fullName: formData.name,
+        phone: formData.phone,
+        email: formData.email || null,
+        service: formData.service || null,
+        details: formData.message || null,
+      });
 
-    setIsLoading(false);
+      setIsSubmitted(true);
 
-    if (error) {
-      console.error("Insert error:", error);
-      alert("Failed to send message");
-      return;
-    }
+      setTimeout(() => {
+        setIsSubmitted(false);
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          service: "",
+          message: "",
+        });
+      }, 3500);
+    } catch (err: any) {
+      console.error(err);
 
-    setIsSubmitted(true);
-
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({ name: "", email: "", phone: "", message: "" });
-    }, 3500);
-  };;
+      alert(
+        err.response?.data?.message ||
+        "Failed to send message"
+      );
+    } finally {
+      setIsLoading(false);
+    } 
+  };
 
   const handleChange = (e: any) => setFormData({ ...formData, [e.target.name]: e.target.value });
 
@@ -377,14 +387,14 @@ export default function Contact() {
                         </div>
                         <div className="ct-field">
                           <label className="ct-label" htmlFor="email">Email Address *</label>
-                          <input className="ct-input" type="email" id="email" name="email" value={formData.email} onChange={handleChange} required placeholder="rahul@example.com" />
+                          <input className="ct-input" type="email" id="email" name="email" value={formData.email} onChange={handleChange} placeholder="rahul@example.com" />
                         </div>
                       </div>
 
                       <div className="ct-form-row">
                         <div className="ct-field">
                           <label className="ct-label" htmlFor="phone">Phone Number</label>
-                          <input className="ct-input" type="tel" id="phone" name="phone" value={formData.phone} onChange={handleChange} placeholder="+91 98765 43210" />
+                          <input className="ct-input" type="tel" id="phone" name="phone" required value={formData.phone} onChange={handleChange} placeholder="+91 98765 43210" />
                         </div>
                         <div className="ct-field">
                           <label className="ct-label" htmlFor="service">Service Required</label>
@@ -403,7 +413,7 @@ export default function Contact() {
 
                       <div className="ct-form-row-full ct-field">
                         <label className="ct-label" htmlFor="message">Project Details *</label>
-                        <textarea className="ct-textarea" id="message" name="message" value={formData.message} onChange={handleChange} required placeholder="Tell us about your project — dimensions, materials, timeline, quantity..." />
+                        <textarea className="ct-textarea" id="message" name="message" value={formData.message} onChange={handleChange} placeholder="Tell us about your project — dimensions, materials, timeline, quantity..." />
                       </div>
 
                       <button type="submit" className="ct-submit" disabled={isLoading}>
