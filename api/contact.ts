@@ -1,7 +1,5 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import { Resend } from "resend";
-
-const resend = new Resend(process.env.RESEND_API_KEY);
+import nodemailer from "nodemailer";
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== "POST") {
@@ -18,51 +16,45 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       });
     }
 
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: process.env.MAIL_USER,
+        pass: process.env.MAIL_PASS, // app password
+      },
+    });
+
     const formattedTime = new Date().toLocaleString("en-IN", {
       timeZone: "Asia/Kolkata",
       dateStyle: "full",
       timeStyle: "long",
     });
 
-    const { error } = await resend.emails.send({
-      from: "Malik Fabrication <onboarding@resend.dev>",
-      to: process.env.RECEIVE_EMAIL as string,
+    await transporter.sendMail({
+      from: `"Malik Fabrication" <${process.env.MAIL_USER}>`,
+      to: process.env.RECEIVE_EMAIL,
+      replyTo: email || process.env.MAIL_USER,
       subject: "New Lead - Malik Fabrication",
       html: `
-        <h2>New Lead Received</h2>
-
-        <p><b>Date & Time:</b> ${formattedTime}</p>
+        <h2>New Lead</h2>
+        <p><b>Date:</b> ${formattedTime}</p>
         <p><b>Name:</b> ${fullName}</p>
-        <p><b>Phone:</b> <a href="tel:${phone}">${phone}</a></p>
-
+        <p><b>Phone:</b> ${phone}</p>
         ${email ? `<p><b>Email:</b> ${email}</p>` : ""}
         ${service ? `<p><b>Service:</b> ${service}</p>` : ""}
         ${details ? `<p><b>Details:</b> ${details}</p>` : ""}
-
-        <hr />
-        <p style="color: gray; font-size: 12px;">
-          Sent from Malik Fabrication Website
-        </p>
       `,
     });
-
-    if (error) {
-      console.error("Resend error:", error);
-      return res.status(500).json({
-        success: false,
-        message: "Failed to send email",
-      });
-    }
 
     return res.status(200).json({
       success: true,
       message: "Message sent successfully",
     });
-  } catch (error) {
+  } catch (error: any) {
     console.error("Email error:", error);
     return res.status(500).json({
       success: false,
-      message: "Failed to send message",
+      message: error.message || "Failed to send message",
     });
   }
 }
