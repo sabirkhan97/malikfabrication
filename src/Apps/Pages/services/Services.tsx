@@ -8,7 +8,7 @@ const services = [
     title: 'Custom Fabrication',
     description: 'From raw steel to finished structure — we build exactly what your project demands with zero compromise on quality.',
     features: ['Structural steel fabrication', 'Custom brackets & mounts', 'Prototype to production runs'],
-    image: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=600',
+    image: 'https://static.rivexa.com/_next/static/media/Fabrication.7e047f33.webp',
     tag: 'Core Service',
   },
   {
@@ -16,7 +16,7 @@ const services = [
     title: 'MIG & TIG Welding',
     description: 'Precision arc welding for every material and application. Clean beads, full penetration, every pass certified.',
     features: ['Stainless, aluminum, carbon steel', 'Certified welders on staff', 'Pressure vessel rated'],
-    image: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReeBWJuXjocoGZGcjT06ZZlcRjchWbjeLbiA&s',
     tag: 'Certified',
   },
   {
@@ -24,7 +24,7 @@ const services = [
     title: 'Industrial Sheds',
     description: 'Durable steel sheds for industrial applications. Built to last with quality materials and expert craftsmanship.',
     features: ['Heavy steel construction', 'Weatherproof designs', 'Custom sizes available'],
-    image: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=600',
+    image: 'https://internal-assets.jswonemsme.com/Industrialshedssteel3_1736772173760_9ee78666a4/Industrialshedssteel3_1736772173760_9ee78666a4.jpeg',
     tag: 'Structural',
   },
   {
@@ -32,7 +32,7 @@ const services = [
     title: 'Gates & Grills',
     description: 'Elegant and secure gates, rolling shutters, and security grills for residential and commercial properties.',
     features: ['Fancy gates & grills', 'Channel gates', 'Security railings'],
-    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600',
+    image: 'https://image.made-in-china.com/2f0j00cktoYIVBHebP/Latest-House-Main-Gate-Grill-Designs-Garden-Door-Wrought-Iron-Gate.jpg',
     tag: 'Custom',
   },
   {
@@ -40,7 +40,7 @@ const services = [
     title: 'Repair & Restoration',
     description: 'Professional repair services for damaged metal structures, equipment, and machinery.',
     features: ['Heavy equipment repair', 'Farm & ag machinery', 'Emergency turnaround'],
-    image: 'https://images.unsplash.com/photo-1535963231606-77a38f58abf4?w=600',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvjd63IrV6CyNqmNZ7e9NDqx9U7YMhE0dIFQ&s',
     tag: 'Repair',
   },
   {
@@ -48,7 +48,7 @@ const services = [
     title: 'Structural Fabrication',
     description: 'Complete structural steel solutions for buildings, warehouses, and industrial facilities.',
     features: ['Steel structures', 'Steel balconies', 'Custom metal artwork'],
-    image: 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=600',
+    image: 'https://eminencemetal.com/wp-content/uploads/2021/10/Structural-Steel-Fabrication.jpg',
     tag: 'Industrial',
   },
 ];
@@ -473,7 +473,7 @@ export default function Services() {
                 viewport={{ once: true }}
               >
                 <img
-                  src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=700"
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7KZAcNgLr6ieEYQ1wyVJv_mnBtmmLdBS7Wg&s"
                   alt="Quality Fabrication"
                 />
                 <div className="sv-why-badge">

@@ -4,10 +4,26 @@ import { Link } from 'react-router-dom';
 import { useRef } from 'react';
 
 const timeline = [
-  { year: '2008', event: 'Founded', description: 'Started as a small fabrication workshop with two welders in Gurugram.' },
-  { year: '2012', event: 'First Major Contract', description: 'Completed first large-scale industrial shed project for a manufacturing unit.' },
-  { year: '2018', event: 'Expanding Horizons', description: 'Expanded operations to serve a broader range of industrial and commercial clients.' },
-  { year: '2023', event: '500+ Projects', description: 'Hit a major milestone — same commitment to quality, bigger scale.' },
+  {
+    year: '2011',
+    event: 'Foundation',
+    description: 'Malik Fabrication was established in Gurugram, focusing on welding and custom fabrication work.',
+  },
+  {
+    year: '2012',
+    event: 'First Major Project',
+    description: 'Completed early large-scale fabrication work, marking the transition into structured project-based work.',
+  },
+  {
+    year: '2016',
+    event: 'Industrial Growth',
+    description: 'Began handling industrial sheds, steel structures, and on-site fabrication for commercial and contractor-driven projects.',
+  },
+  {
+    year: '2025',
+    event: 'Trusted by Leading Brands',
+    description: 'Recognized as a reliable fabrication partner for well-known businesses including Om Sweets, Harish Bakery, and Samrat Bakery, delivering consistent quality and on-time execution.',
+  },
 ];
 
 const stats = [
@@ -288,7 +304,7 @@ export default function About() {
         {/* ── HERO ── */}
         <section className="ab-hero" ref={heroRef}>
           <motion.div className="ab-hero-img" style={{ y: yParallax }}>
-            <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=1400&q=80" alt="Welding workshop" />
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScEUiYj2P93KicyDQApvhuRdNXrA5shpzgYA&s" alt="Welding workshop" />
           </motion.div>
           <div className="ab-hero-overlay" />
           <div className="ab-hero-top-bar" />
@@ -296,7 +312,7 @@ export default function About() {
             <motion.div initial={{ opacity: 0, y: 36 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}>
               <div className="ab-hero-eyebrow">
                 <span />
-                Established 2008 · Gurugram, Haryana
+                Established 2011 · Gurugram, Haryana
               </div>
               <h1 className="ab-hero-title">
                 Built on<br />
@@ -304,7 +320,7 @@ export default function About() {
                 <span className="ab-ht-italic">&amp; Skill.</span>
               </h1>
               <p className="ab-hero-sub">
-                Since 2008, MK Fabrication has delivered precision metalwork that holds up
+                Since 2011, MK Fabrication has delivered precision metalwork that holds up
                 under real-world conditions — no corners cut, no compromises made.
               </p>
               <div className="ab-hero-btns">
@@ -362,10 +378,10 @@ export default function About() {
               <motion.div className="ab-mission-img-wrap"
                 initial={{ opacity: 0, x: 24 }} whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }} transition={{ duration: 0.55, delay: 0.15 }}>
-                <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=800&q=80" alt="Workshop" />
+                <img src="https://www.rapiddirect.com/wp-content/uploads/2025/01/metal-fabrication-processes.jpg.jpg" alt="Workshop" />
                 <div className="ab-mission-badge">
                   <div className="ab-mission-badge-val" style={{ fontSize: 18 }}>Est.</div>
-                  <div className="ab-mission-badge-val">2008</div>
+                  <div className="ab-mission-badge-val">2011</div>
                   <div className="ab-mission-badge-lbl">Gurugram, Haryana</div>
                 </div>
               </motion.div>

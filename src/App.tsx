@@ -9,6 +9,7 @@ import About from './Apps/Pages/About/About';
 import Contact from './Apps/Pages/Contact/Contact';
 import Blogs from './Apps/Pages/Blogs/Blogs';
 import BlogDetail from './Apps/Pages/Blogs/BlogDetail';
+import Shop from './Apps/Pages/Shops/Shops';
 
 
 
@@ -23,6 +24,7 @@ function App() {
             <Route path="/services" element={<Services />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/shop" element={<Shop />} />
             <Route path="/blogs" element={<Blogs />} />
             <Route path="/blogs/:id" element={<BlogDetail />} />
           </Routes>

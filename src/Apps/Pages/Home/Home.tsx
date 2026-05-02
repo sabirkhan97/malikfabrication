@@ -10,10 +10,10 @@ const features = [
 ];
 
 const services = [
-  { title: 'Metal Fabrication', description: 'Custom-built metal structures with precision finishing for industrial and commercial applications.', image: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=600', tag: 'Industrial' },
-  { title: 'Welding Services', description: 'Professional MIG & TIG welding by certified welders with full quality assurance.', image: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600', tag: 'Certified' },
-  { title: 'Industrial Sheds', description: 'Durable steel sheds designed and fabricated to your exact specifications.', image: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=600', tag: 'Structural' },
-  { title: 'Gates & Railings', description: 'Elegant, secure gates, grills, and railings for residential and commercial spaces.', image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600', tag: 'Custom' },
+  { title: 'Metal Fabrication', description: 'Custom-built metal structures with precision finishing for industrial and commercial applications.', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThmT1eTxZGW9qWsRKSxzXsrEL2gMZ0AF8iJQ&s', tag: 'Industrial' },
+  { title: 'Welding Services', description: 'Professional MIG & TIG welding by certified welders with full quality assurance.', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReeBWJuXjocoGZGcjT06ZZlcRjchWbjeLbiA&s', tag: 'Certified' },
+  { title: 'Industrial Sheds', description: 'Durable steel sheds designed and fabricated to your exact specifications.', image: 'https://internal-assets.jswonemsme.com/Industrialshedssteel3_1736772173760_9ee78666a4/Industrialshedssteel3_1736772173760_9ee78666a4.jpeg', tag: 'Structural' },
+  { title: 'Gates & Railings', description: 'Elegant, secure gates, grills, and railings for residential and commercial spaces.', image: 'https://image.made-in-china.com/2f0j00cktoYIVBHebP/Latest-House-Main-Gate-Grill-Designs-Garden-Door-Wrought-Iron-Gate.jpg', tag: 'Custom' },
 ];
 
 const stats = [
@@ -682,12 +682,12 @@ export default function Home() {
             {/* Right — image grid */}
             <div className="mf-img-grid">
               <div className="mf-img-col">
-                <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=400&h=280&fit=crop" alt="Metal Fabrication" style={{ height: 198 }} />
-                <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=400&h=220&fit=crop" alt="Welding" style={{ height: 160 }} />
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGO198vroOjje1iwMuTj38hiCWA_qcRaQ1-Q&s" alt="Metal Fabrication" style={{ height: 198 }} />
+                <img src="https://5.imimg.com/data5/SELLER/Default/2025/10/555289903/GW/NK/EB/105348235/truck-body-repairing-fabrication-500x500.png" alt="Welding" style={{ height: 160 }} />
               </div>
               <div className="mf-img-col">
-                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=220&fit=crop" alt="Gates" style={{ height: 160 }} />
-                <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=400&h=280&fit=crop" alt="Industrial" style={{ height: 198 }} />
+                <img src="https://5.imimg.com/data5/SELLER/Default/2025/8/536038938/LB/MR/XE/18772814/mild-steel-industrial-fabrication.jpg" alt="Gates" style={{ height: 160 }} />
+                <img src="https://s.alicdn.com/@sc04/kf/H9504c585d9f545678b83bb9a227fc7acL/Sunnysky-Modern-Steel-Gate-Grill-Design-House-Latest-Main-Swing-Simple-Driveway-Wrought-Iron-Gate-Designs-Simple.jpg" alt="Industrial" style={{ height: 198 }} />
               </div>
               <div className="mf-img-badge">Trusted Since 2008</div>
             </div>
