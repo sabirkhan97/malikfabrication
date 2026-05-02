@@ -133,7 +133,7 @@ const CSS = `
 
   /* ══ HERO (identical structure to Home) ══ */
   .sh-hero {
-    position:relative; min-height:72vh; background:var(--white);
+    position:relative; min-height:12vh; background:var(--white);
     display:flex; align-items:center; overflow:hidden; padding-top:80px;
   }
   .sh-hero-stripe {
@@ -677,41 +677,7 @@ export default function Shop() {
 
         {/* ══ HERO ══ */}
         <section className="sh-hero">
-          <div className="sh-hero-bar" />
-          <div className="sh-hero-stripe" />
-          <div className="sh-hero-dots" />
-          <div className="sh-hero-inner">
-            <div>
-              <div className="sh-eyebrow"><span className="sh-eyebrow-dot" />Fabrication Products — Gurgaon</div>
-              <h1 className="sh-hero-title t1">Browse &amp;</h1>
-              <h1 className="sh-hero-title t2"><span className="sh-title-solid">Request</span> <span className="sh-title-outline">Quotes</span></h1>
-              <h1 className="sh-hero-title t3">Online</h1>
-              <p className="sh-hero-sub">
-                Pick the products you need, add specifications, and send us a quote request in seconds.
-                Our team will revert with pricing and a free site visit if required.
-              </p>
-              <div className="sh-hero-actions">
-                <button className="sh-btn-primary"
-                  onClick={() => document.getElementById('sh-catalog')?.scrollIntoView({ behavior: 'smooth' })}>
-                  Browse Products <ChevronDown size={16} />
-                </button>
-                <Link to="/contact" className="sh-btn-secondary">Contact Us <ArrowRight size={16} /></Link>
-              </div>
-            </div>
-
-            {/* Image grid */}
-            <div className="sh-img-grid">
-              <div className="sh-img-col">
-                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=280&fit=crop" alt="Steel Gates"       style={{ height: 198 }} />
-                <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=400&h=220&fit=crop" alt="Metal Fabrication" style={{ height: 160 }} />
-              </div>
-              <div className="sh-img-col">
-                <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=400&h=220&fit=crop" alt="Steel Shed" style={{ height: 160 }} />
-                <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=400&h=280&fit=crop" alt="Welding"    style={{ height: 198 }} />
-              </div>
-              <div className="sh-img-badge">500+ Projects Delivered</div>
-            </div>
-          </div>
+         
         </section>
 
         {/* ══ STICKY FILTER BAR ══ */}
