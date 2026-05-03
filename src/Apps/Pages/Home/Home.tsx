@@ -71,12 +71,12 @@ const blogsPreview = [
 ];
 
 /* ─── HOOKS ─── */
-function useCountUp(target, duration = 1800, start = false) {
+function useCountUp(target: any, duration = 1800, start = false) {
   const [count, setCount] = useState(0);
   useEffect(() => {
     if (!start) return;
-    let startTime = null;
-    const step = (timestamp) => {
+    let startTime: any = null;
+    const step = (timestamp: any) => {
       if (!startTime) startTime = timestamp;
       const progress = Math.min((timestamp - startTime) / duration, 1);
       const eased = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
@@ -104,7 +104,7 @@ function useInView(threshold = 0.15) {
 }
 
 /* ─── COMPONENTS ─── */
-function Reveal({ children, className = '', direction = 'up', delay = 0 }) {
+function Reveal({ children, className = '', direction = 'up', delay = 0 }: any) {
   const ref = useRef(null);
   const [visible, setVisible] = useState(false);
   useEffect(() => {
@@ -116,7 +116,7 @@ function Reveal({ children, className = '', direction = 'up', delay = 0 }) {
     obs.observe(el);
     return () => obs.disconnect();
   }, []);
-  const animMap = {
+  const animMap: any = {
     up: 'mf-anim-up',
     left: 'mf-anim-left',
     right: 'mf-anim-right',
@@ -133,7 +133,7 @@ function Reveal({ children, className = '', direction = 'up', delay = 0 }) {
   );
 }
 
-function AnimatedStat({ stat, inView }) {
+function AnimatedStat({ stat, inView }: any) {
   const count = useCountUp(stat.value, 1800, inView);
   return (
     <div className="mf-stat-item">
@@ -153,7 +153,7 @@ function StatsBar() {
   );
 }
 
-function StarRating({ count }) {
+function StarRating({ count }: any) {
   return (
     <div style={{ display: 'flex', gap: 2, marginBottom: 10 }}>
       {Array.from({ length: count }).map((_, i) => (
