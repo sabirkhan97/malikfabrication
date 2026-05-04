@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, CheckCircle, Flame, Wrench, Shield, Building2, Hammer, DoorOpen, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
-// import weldingVideo from "@/Apps/Images/WeldingVid2160_50fps.mp4";
 import weldingVideo from "../../Images/WeldingVid2160_50fps.mp4";
 
 const services = [
