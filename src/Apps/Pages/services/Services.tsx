@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, CheckCircle, Flame, Wrench, Shield, Building2, Hammer, DoorOpen, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
+// import weldingVideo from "@/Apps/Images/WeldingVid2160_50fps.mp4";
+import weldingVideo from "../../Images/WeldingVid2160_50fps.mp4";
 
 const services = [
   {
@@ -465,22 +467,27 @@ export default function Services() {
               </motion.div>
 
               {/* Right */}
-              <motion.div
-                className="sv-why-img-wrap"
-                initial={{ opacity: 0, x: 24 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.55, delay: 0.15 }}
-                viewport={{ once: true }}
-              >
-                <img
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7KZAcNgLr6ieEYQ1wyVJv_mnBtmmLdBS7Wg&s"
-                  alt="Quality Fabrication"
-                />
-                <div className="sv-why-badge">
-                  <div className="sv-why-badge-val">15+</div>
-                  <div className="sv-why-badge-lbl">Years of Excellence</div>
-                </div>
-              </motion.div>
+             <motion.div
+  className="sv-why-img-wrap"
+  initial={{ opacity: 0, x: 24 }}
+  whileInView={{ opacity: 1, x: 0 }}
+  transition={{ duration: 0.55, delay: 0.15 }}
+  viewport={{ once: true }}
+>
+  <video
+    src={weldingVideo}
+    autoPlay
+    loop
+    muted
+    playsInline
+    className="sv-why-video"
+  />
+
+  <div className="sv-why-badge">
+    <div className="sv-why-badge-val">15+</div>
+    <div className="sv-why-badge-lbl">Years of Excellence</div>
+  </div>
+</motion.div>
             </div>
           </div>
         </section>

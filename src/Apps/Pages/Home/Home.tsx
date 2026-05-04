@@ -558,6 +558,34 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* ─── MAIN EXPORT (ENHANCED FOR MOBILE) ─── */
 export default function Home() {
+  const projects = [
+    {
+      title: "Modern Gate Fabrication",
+      desc: "Before: old iron gate → After: heavy-duty powder coated gate",
+      img: "https://image.made-in-china.com/2f0j00cktoYIVBHebP/Latest-House-Main-Gate-Grill-Designs-Garden-Door-Wrought-Iron-Gate.jpg",
+      badge: "Gate: Installed"
+    },
+    {
+      title: "Industrial Shed Work",
+      desc: "25,000 sq ft shed – from raw steel to leakproof structure",
+      img: "https://internal-assets.jswonemsme.com/Industrialshedssteel3_1736772173760_9ee78666a4/Industrialshedssteel3_1736772173760_9ee78666a4.jpeg",
+      badge: "Shed: Completed"
+    },
+    {
+      title: "SS Glass Railing",
+      desc: "Before: plain wall → After: modern SS railing + glass",
+      img: "https://img500.exportersindia.com/product_images/bc-500/2023/10/12642786/ss-balcony-grill-1697288793-7131662.jpeg",
+      badge: "Railing: Installed"
+    },
+
+    // 👉 ADD YOUR NEW PROJECT HERE
+    {
+      title: "Warehouse shed",
+      desc: "Before - open space, after - sturdy shed with roofing and walls",
+      img: "src/Apps/Images/shedimageOmsweets540.jpeg",
+      badge: "Completed"
+    }
+  ];
   return (
     <>
       <style>{CSS}</style>
@@ -721,9 +749,18 @@ export default function Home() {
           <div className="mf-inner">
             <Reveal direction="up"><div style={{ textAlign: 'center' }}><div className="mf-eyebrow"><span className="mf-eyebrow-dot" />Portfolio</div><h2 className="mf-section-heading">Our <span className="mf-accent-word">Recent Work</span></h2><div className="mf-divider-line" style={{ margin: '16px auto 0' }} /></div></Reveal>
             <div className="mf-recent-grid">
-              <div className="mf-recent-card"><div className="mf-recent-img"><img src="https://image.made-in-china.com/2f0j00cktoYIVBHebP/Latest-House-Main-Gate-Grill-Designs-Garden-Door-Wrought-Iron-Gate.jpg" alt="Gate work" loading="lazy" /><div className="mf-before-badge">Gate: Installed</div></div><div className="mf-recent-info"><div className="mf-recent-title">Modern Gate Fabrication</div><div className="mf-recent-desc">Before: old iron gate → After: heavy-duty powder coated gate</div></div></div>
-              <div className="mf-recent-card"><div className="mf-recent-img"><img src="https://internal-assets.jswonemsme.com/Industrialshedssteel3_1736772173760_9ee78666a4/Industrialshedssteel3_1736772173760_9ee78666a4.jpeg" alt="Shed" loading="lazy" /><div className="mf-before-badge">Shed: Completed</div></div><div className="mf-recent-info"><div className="mf-recent-title">Industrial Shed Work</div><div className="mf-recent-desc">25,000 sq ft shed – from raw steel to leakproof structure</div></div></div>
-              <div className="mf-recent-card"><div className="mf-recent-img"><img src="https://img500.exportersindia.com/product_images/bc-500/2023/10/12642786/ss-balcony-grill-1697288793-7131662.jpeg" alt="Railing" loading="lazy" /><div className="mf-before-badge">Railing: Installed</div></div><div className="mf-recent-info"><div className="mf-recent-title">SS Glass Railing</div><div className="mf-recent-desc">Before: plain wall → After: modern SS railing + glass</div></div></div>
+              {projects.map((item, index) => (
+                <div className="mf-recent-card" key={index}>
+                  <div className="mf-recent-img">
+                    <img src={item.img} alt={item.title} loading="lazy" />
+                    <div className="mf-before-badge">{item.badge}</div>
+                  </div>
+                  <div className="mf-recent-info">
+                    <div className="mf-recent-title">{item.title}</div>
+                    <div className="mf-recent-desc">{item.desc}</div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </section>
