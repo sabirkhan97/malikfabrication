@@ -16,9 +16,17 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       });
     }
 
-    // ✅ STEP 1: SAVE TO GOOGLE SHEET (MAIN)
-    const sheetRes = await fetch(process.env.GOOGLE_SCRIPT_URL as string, {
+    // ✅ CHECK ENV
+    if (!process.env.GOOGLE_SCRIPT_URL) {
+      throw new Error("Google Script URL not set");
+    }
+
+    // ✅ SAVE TO GOOGLE SHEET (MAIN SYSTEM)
+    const sheetRes = await fetch(process.env.GOOGLE_SCRIPT_URL, {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify({
         fullName,
         phone,
@@ -31,12 +39,12 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const sheetData = await sheetRes.json();
 
     if (!sheetData.success) {
-      throw new Error("Failed to save lead");
+      throw new Error("Failed to save lead in sheet");
     }
 
-    console.log("Saved to sheet");
+    console.log("✅ Saved to sheet");
 
-    // ✅ STEP 2: SEND EMAIL (OPTIONAL)
+    // ⚠️ OPTIONAL EMAIL (DON'T TRUST THIS)
     try {
       const transporter = nodemailer.createTransport({
         service: "gmail",
@@ -59,18 +67,19 @@ Details: ${details || "-"}
         `,
       });
 
-      console.log("Email sent");
+      console.log("📩 Email sent");
     } catch (mailError) {
-      console.error("Email failed (but lead saved):", mailError);
+      console.error("⚠️ Email failed (lead still saved):", mailError);
     }
 
     return res.status(200).json({
       success: true,
-      message: "Lead saved",
+      message: "Lead saved successfully",
     });
 
   } catch (error: any) {
-    console.error("FULL ERROR:", error);
+    console.error("❌ FULL ERROR:", error);
+
     return res.status(500).json({
       success: false,
       message: error.message,
