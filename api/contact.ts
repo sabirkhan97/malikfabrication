@@ -36,8 +36,17 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       }),
     });
 
-    const sheetData = await sheetRes.json();
+    const text = await sheetRes.text();
+    console.log("Sheet raw response:", text);
 
+    let sheetData;
+
+    try {
+      sheetData = JSON.parse(text);
+    } catch {
+      throw new Error("Invalid response from Google Script");
+    }
+    
     if (!sheetData.success) {
       throw new Error("Failed to save lead in sheet");
     }
